@@ -10,7 +10,7 @@ UP ARROW - вперед, DOWN ARROW - назад, RIGHT ARROW - вправо, LE
 https://github.com/Sergey-Danilov/3D-city-model/blob/master/lesson2.exe
 
 
-1.bpm
+https://github.com/Sergey-Danilov/3D-city-model/blob/master/1.bmp
 
 
 Запустите Lesson2.exe
