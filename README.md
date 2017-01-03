@@ -13,4 +13,4 @@ https://github.com/Sergey-Danilov/3D-city-model/blob/master/lesson2.exe
 https://github.com/Sergey-Danilov/3D-city-model/blob/master/1.bmp
 
 
-Запустите Lesson2.exe
+Запустите lesson2.exe
