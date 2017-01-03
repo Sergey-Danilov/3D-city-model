@@ -7,7 +7,7 @@ UP ARROW - вперед, DOWN ARROW - назад, RIGHT ARROW - вправо, LE
 Для демонстрации работы прораммы скачайте:
 
 
-Lesson2.exe
+https://github.com/Sergey-Danilov/3D-city-model/blob/master/lesson2.exe
 
 
 1.bpm
