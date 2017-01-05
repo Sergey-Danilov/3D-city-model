@@ -24,14 +24,14 @@ bool	active=TRUE;		// Window Active Flag Set To TRUE By Default
 bool	fullscreen=TRUE;	// Fullscreen Flag Set To Fullscreen Mode By Default
 LRESULT	CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);	// Declaration For WndProc
 
-GLuint texture[1];//массив текстур
+GLuint texture[1];//Г¬Г Г±Г±ГЁГў ГІГҐГЄГ±ГІГіГ°
 
-float speed = 0.01;//скорость человека
+float speed = 0.01;//Г±ГЄГ®Г°Г®Г±ГІГј Г·ГҐГ«Г®ГўГҐГЄГ 
 const float PI = 3.141592653;
-float height1 = 1;//высота человека
-double x, y, z;//Положение камеры в пространстве
-float angleX, angleY;// Углы поворота камеры
-POINT mousexy;//положение мыши на экране.
+float height1 = 1;//ГўГ»Г±Г®ГІГ  Г·ГҐГ«Г®ГўГҐГЄГ 
+double x, y, z;//ГЏГ®Г«Г®Г¦ГҐГ­ГЁГҐ ГЄГ Г¬ГҐГ°Г» Гў ГЇГ°Г®Г±ГІГ°Г Г­Г±ГІГўГҐ
+float angleX, angleY;// Г“ГЈГ«Г» ГЇГ®ГўГ®Г°Г®ГІГ  ГЄГ Г¬ГҐГ°Г»
+POINT mousexy;//ГЇГ®Г«Г®Г¦ГҐГ­ГЁГҐ Г¬Г»ГёГЁ Г­Г  ГЅГЄГ°Г Г­ГҐ.
 
 GLvoid ReSizeGLScene(GLsizei width, GLsizei height)		// Resize And Initialize The GL Window
 {
@@ -66,14 +66,14 @@ AUX_RGBImageRec *LoadBMP(char *Filename)                    // Loads A Bitmap Im
 	}
 	return NULL;                                // If Load Failed Return NULL
 }
-// Загрузка картинки и конвертирование в текстуру
+// Г‡Г ГЈГ°ГіГ§ГЄГ  ГЄГ Г°ГІГЁГ­ГЄГЁ ГЁ ГЄГ®Г­ГўГҐГ°ГІГЁГ°Г®ГўГ Г­ГЁГҐ Гў ГІГҐГЄГ±ГІГіГ°Гі
 int LoadGLTextures()
 {
 	int Status=FALSE;  
-	// Загрузка картинки
+	// Г‡Г ГЈГ°ГіГ§ГЄГ  ГЄГ Г°ГІГЁГ­ГЄГЁ
 	AUX_RGBImageRec *TextureImage[1];
 	memset(TextureImage,0,sizeof(void *)*1); 
-		// Создание текстуры
+		// Г‘Г®Г§Г¤Г Г­ГЁГҐ ГІГҐГЄГ±ГІГіГ°Г»
 	if (TextureImage[0]=LoadBMP("1.bmp"))
 	{
 		Status=TRUE;                            // Set The Status To TRUE
@@ -120,18 +120,18 @@ int DrawGLScene(GLvoid)									// Here's Where We Do All The Drawing
 	glLoadIdentity();
 	gluLookAt(x, y+height1, z, x-sin(angleX/180*PI), y+height1+(tan(angleY/180*PI)), z-cos(angleX/180*PI), 0, 1, 0);
 	glBindTexture(GL_TEXTURE_2D, texture[0]);    
-	Map mapp(24);//создаем карту на 24 дома
-	for (int i = 0; i < 6; i++)//создаем 6 рядов домов
+	Map mapp(24);//Г±Г®Г§Г¤Г ГҐГ¬ ГЄГ Г°ГІГі Г­Г  24 Г¤Г®Г¬Г 
+	for (int i = 0; i < 6; i++)//Г±Г®Г§Г¤Г ГҐГ¬ 6 Г°ГїГ¤Г®Гў Г¤Г®Г¬Г®Гў
 	{
-		mapp.CreateHouse(4, 5 - 5 * i, 3, 3, 5);//4-к. по горизонтали, 5-5*i - к. углубления, 3 - длина, 3 - ширина, 5 - этажи
-		mapp.CreateHouse(0, 5 - 5 * i, 2, 2, 3);//x z длина ширина высота
+		mapp.CreateHouse(4, 5 - 5 * i, 3, 3, 5);//4-ГЄ. ГЇГ® ГЈГ®Г°ГЁГ§Г®Г­ГІГ Г«ГЁ, 5-5*i - ГЄ. ГіГЈГ«ГіГЎГ«ГҐГ­ГЁГї, 3 - Г¤Г«ГЁГ­Г , 3 - ГёГЁГ°ГЁГ­Г , 5 - ГЅГІГ Г¦ГЁ
+		mapp.CreateHouse(0, 5 - 5 * i, 2, 2, 3);//x z Г¤Г«ГЁГ­Г  ГёГЁГ°ГЁГ­Г  ГўГ»Г±Г®ГІГ 
 		mapp.CreateHouse(-5, 5 - 5 * i, 3, 2, 4);
 		mapp.CreateHouse(-9, 5 - 5 * i, 2, 3, 5);
 	}
 	//mapp.CreateHouse(0, 1, 2, 1, 1);
 	//mapp.DrawHouse(mapp.city[0]);
 	//mapp.DrawHouse(mapp.city[1]);
-	mapp.DrawAll();//рисуем все дома
+	mapp.DrawAll();//Г°ГЁГ±ГіГҐГ¬ ГўГ±ГҐ Г¤Г®Г¬Г 
 	return TRUE;										// Keep Going
 }
 
@@ -424,7 +424,7 @@ int WINAPI WinMain(	HINSTANCE	hInstance,			// Instance
 	}
 
 	// Create Our OpenGL Window
-	if (!CreateGLWindow("NeHe's First Polygon Tutorial",640,480,16,fullscreen))
+	if (!CreateGLWindow("3D city model",640,480,16,fullscreen))
 	{
 		return 0;									// Quit If Window Was Not Created
 	}
@@ -486,19 +486,19 @@ int WINAPI WinMain(	HINSTANCE	hInstance,			// Instance
 				x += (float)sin(( angleX - 90)/180*PI)* speed;	
 				z += (float)cos(( angleX - 90)/180*PI)* speed;
 			}
-			if ((keys[0x57])||(keys[VK_SPACE]))//W или space - поднимаемся
+			if ((keys[0x57])||(keys[VK_SPACE]))//W ГЁГ«ГЁ space - ГЇГ®Г¤Г­ГЁГ¬Г ГҐГ¬Г±Гї
 			{
 				height1 += 0.01;
 			}
-			if (keys[0x53])//S - опускаемся
+			if (keys[0x53])//S - Г®ГЇГіГ±ГЄГ ГҐГ¬Г±Гї
 			{
 				height1 -= 0.01;
 			}
-			//для мыши
+			//Г¤Г«Гї Г¬Г»ГёГЁ
 			GetCursorPos(&mousexy);
-			angleX +=(320 - mousexy.x)/2; //2 — чувствительность 
+			angleX +=(320 - mousexy.x)/2; //2 В— Г·ГіГўГ±ГІГўГЁГІГҐГ«ГјГ­Г®Г±ГІГј 
 			angleY +=(240 - mousexy.y)/2;
-			SetCursorPos(320,240); // Дефолтное положение мыши
+			SetCursorPos(320,240); // Г„ГҐГґГ®Г«ГІГ­Г®ГҐ ГЇГ®Г«Г®Г¦ГҐГ­ГЁГҐ Г¬Г»ГёГЁ
 			if (angleY<-89.0){angleY=-89.0;}
 			if (angleY>89.0){angleY=89.0;}
 		}
